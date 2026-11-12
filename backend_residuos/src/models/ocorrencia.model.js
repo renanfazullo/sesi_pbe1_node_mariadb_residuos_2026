@@ -1,12 +1,13 @@
+
 const con = require("../config/db");
 
-const cadastrar = async ({ usuarioId, local, tipoResiduo, nivelRisco, status}) => {
+const cadastrar = async ({ usuarioId, local, tipoResiduo, nivelRisco, status }) => {
     const [resultado] = await con.query(
-        "INSERT INTO  ocorrencia VALUES (DEDFAULT, ?, ?, ? ,?, DEFAULT, ?)"
+        "INSERT INTO ocorrencia VALUES (DEFAULT, ?, ?, ?, ?, DEFAULT, ?)",
         [usuarioId, local, tipoResiduo, nivelRisco, status]
     );
 
-    return{
+    return {
         id: resultado.insertId,
         usuarioId,
         local,
@@ -42,9 +43,18 @@ const excluir = async (id) => {
     return resultado;
 };
 
+const resumo = async () => {
+    const [resultado] = await con.query(
+        "SELECT COUNT(*) AS totalTratados FROM ocorrencia WHERE status = 'Tratado';"
+    );
+
+    return resultado[0];
+};
+
 module.exports = {
     cadastrar,
-    listar, 
-    alterar, 
-    excluir
+    listar,
+    alterar,
+    excluir,
+    resumo
 };

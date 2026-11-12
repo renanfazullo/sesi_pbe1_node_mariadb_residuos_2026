@@ -49,9 +49,20 @@ const excluir = async (req, res) => {
     }
 };
 
+const resumo = async (req, res) => {
+    try {
+        const resposta = await ocorrenciaModel.resumo();
+
+        res.status(200).json(resposta).end();
+    } catch (error) {
+        res.status(500).json({ erro: error.message }).end();
+    }
+};
+
 module.exports = {
     cadastrar,
     listar,
     alterar,
-    excluir
+    excluir,
+    resumo
 };

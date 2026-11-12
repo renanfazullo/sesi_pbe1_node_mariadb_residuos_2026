@@ -1,6 +1,5 @@
-drop database if exists gestao_residuos;
-create database gestao_residuos;
-use gestao_residuos;
+create database if not exists gestao_residuos_solidos;
+use gestao_residuos_solidos;
 -- DDL Criação das tabelas
 create table usuario (
     id int not null auto_increment primary key,

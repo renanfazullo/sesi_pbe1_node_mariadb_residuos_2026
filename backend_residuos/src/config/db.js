@@ -5,7 +5,7 @@ const con = mysql.createPool({
     port: 3306,
     user: "root",
     password:"",
-    database: "gestao_residuos"
+    database: "gestao_residuos_solidos",
 });
 
 module.exports = con;
