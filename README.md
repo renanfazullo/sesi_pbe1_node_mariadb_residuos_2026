@@ -24,7 +24,7 @@ Sistema desenvolvido para a Prefeitura de Amparo, com o objetivo de monitorar po
 ## Prints dos testes
 
 ### Cadastro de usuário
-![Cadastro de usuário](./docs/cadastro_usuario.png)
+![Cadastro de usuário](./backend_residuos/docs/cadastro_usuario.png)
 
 ### Listagem de usuários
 ![Listagem de usuários](./docs//listar_usuarios.png)
